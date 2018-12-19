@@ -1,0 +1,25 @@
+.Search {}
+
+.Search .weui-search-bar__box .weui-search-bar__input {
+    padding-left: 30px;
+    padding-bottom: 10px;
+    font-size: 30px;
+}
+
+.Search .weui-search-bar {
+    padding: 8px;
+}
+
+.Search .weui-search-bar__cancel-btn {
+    font-size: 24px;
+    padding: 5px;
+}
+
+input::-webkit-input-placeholder {
+    /* placeholder颜色  */
+    color: #aab2bd;
+    /* placeholder字体大小  */
+    font-size: 12px;
+    /* placeholder位置  */
+    text-align: left;
+}

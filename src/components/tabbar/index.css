@@ -1,0 +1,36 @@
+.TabBarBox {
+    flex: 1;
+    background: #fff;
+    overflow: hidden;
+}
+
+.TabBar {
+    width: 100%;
+    height: 8vh;
+    background: #fff;
+}
+
+.TabBar .bar-item {
+    width: 60px;
+    height: 38px;
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+.TabBar .bar-icon {
+    font-size: 40px;
+}
+
+.TabBar .weui-tabbar__item.weui-bar__item_on .weui-tabbar__icon>i,
+.weui-tabbar__item.weui-bar__item_on .weui-tabbar__label {
+    color: #de698c;
+}
+
+input::-webkit-input-placeholder {
+    /* placeholder颜色  */
+    color: #aab2bd;
+    /* placeholder字体大小  */
+    font-size: 12px;
+    /* placeholder位置  */
+    text-align: left;
+}
