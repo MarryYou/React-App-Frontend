@@ -3,27 +3,45 @@ import { Swiper, Flex, FlexItem } from "react-weui";
 import "weui";
 import "react-weui/build/packages/react-weui.css";
 import "./index.css";
-class Main extends Component {
+import axios from "axios";
+import ReactSwiper from "reactjs-swiper";
+class SwiperBox extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      index: 0
+      swiperOptions: {
+        preloadImages: true,
+        autoplay: 4000,
+        autoplayDisableOnInteraction: false
+      },
+      bannerList: []
     };
   }
-
+  getBannerList = () => {
+    return axios.get("http://localhost:8888/banner");
+  };
+  componentWillMount() {}
+  componentDidMount() {
+    this.getBannerList().then(res => {
+      const List = [];
+      res.data.data.map(item => {
+        List.push({ image: item.pic, title: item.name });
+      });
+      this.setState({ bannerList: List });
+    });
+  }
   render() {
     return (
       <div className="Swiper">
-        <Swiper
-          height={150}
-          onChange={(prev, next) => this.setState({ index: next })}
-        >
-          <img src="" role="presentation" />
-        </Swiper>
+        <ReactSwiper
+          className="swiperbox"
+          swiperOptions={this.state.swiperOptions}
+          showPagination
+          items={this.state.bannerList}
+        />
       </div>
     );
   }
 }
 
-export default Main;
+export default SwiperBox;

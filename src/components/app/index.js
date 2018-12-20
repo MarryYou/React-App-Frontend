@@ -5,15 +5,17 @@ import "react-weui/build/packages/react-weui.css";
 import "./index.css";
 import Header from "../header";
 import TabBarBox from "../tabbar";
-
+import SwiperBox from "../swiper";
+import NavBox from "../navbox";
 const index = () => (
   <div>
-    <p>index page</p>
+    <NavBox />
+    <SwiperBox />
   </div>
 );
 const rank = () => (
   <div>
-    <p>rank page</p>
+    <NavBox />
   </div>
 );
 const search = () => (
