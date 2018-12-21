@@ -15,14 +15,17 @@
     padding: 5px;
     width: 92vw;
     height: 8.4vw;
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow: hidden;
     display: inline-block;
+    position: relative;
 }
 
 .part_box {
-    width: 390%;
+    width: 370%;
     overflow: hidden;
+    position: absolute;
+    left: 0;
+    transition: all .5s linear;
 }
 
 .part_box li {
@@ -90,7 +93,7 @@
 .part_box_more .part_more li {
     display: inline-block;
     width: 11.2vh;
-    height: 5vh;
+    height: 5.5vh;
     font-size: 32px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: center;

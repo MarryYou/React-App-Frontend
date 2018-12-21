@@ -7,22 +7,32 @@ import Header from "../header";
 import TabBarBox from "../tabbar";
 import SwiperBox from "../swiper";
 import NavBox from "../navbox";
+import CardBox from "../card";
 const index = () => (
   <div>
     <NavBox />
-    <SwiperBox />
+    <div className="card-container">
+      <SwiperBox />
+      <CardBox />
+      <CardBox />
+      <CardBox />
+      <CardBox />
+      <CardBox />
+      <CardBox />
+      <CardBox />
+      <CardBox />
+      <CardBox />
+      <CardBox />
+      <CardBox />
+      <CardBox />
+      <CardBox />
+      <CardBox />
+      <CardBox />
+    </div>
   </div>
 );
-const rank = () => (
-  <div>
-    <NavBox />
-  </div>
-);
-const search = () => (
-  <div>
-    <p>search page</p>
-  </div>
-);
+const rank = () => <div />;
+const search = () => <div />;
 const project = () => (
   <div>
     <p>project page</p>
