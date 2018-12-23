@@ -18,7 +18,7 @@ class SwiperBox extends Component {
     };
   }
   getBannerList = () => {
-    return axios.get("http://127.0.0.1:8888/banner");
+    return axios.get("http://59.110.243.107:8086/banner");
   };
   componentWillMount() {}
   componentDidMount() {
