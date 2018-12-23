@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import "weui";
-import "react-weui/build/packages/react-weui.css";
 import "./index.css";
 import Header from "../header";
 import TabBarBox from "../tabbar";
 import SwiperBox from "../swiper";
 import NavBox from "../navbox";
 import CardBox from "../card";
+import RankBox from "../rankBox";
 const index = () => (
   <div>
     <NavBox />
@@ -31,7 +30,11 @@ const index = () => (
     </div>
   </div>
 );
-const rank = () => <div />;
+const rank = () => (
+  <div className="card-container">
+    <RankBox />
+  </div>
+);
 const search = () => <div />;
 const project = () => (
   <div>

@@ -1,35 +1,34 @@
-.NavBox {}
+.RankBox {
+    height: 500px;
+}
 
-.NavBox .part_box_one {
+.RankBox .part_box_one {
     width: 100%;
     height: 70px;
     overflow: hidden;
-    display: flex;
     position: relative;
     color: #757575;
     background: #fff;
     z-index: 1;
 }
 
-.part_content {
+.RankBox .part_content {
     padding: 5px;
-    width: 91vw;
+    width: 100%;
     height: 8.4vw;
     overflow: hidden;
     display: inline-block;
     position: relative;
 }
 
-.part_box {
-    width: 380vw;
+.RankBox .part_box {
     overflow: hidden;
     position: absolute;
-    overflow-x: auto;
     left: 0;
-    transition: all .5s linear;
+    transition: all 1s linear;
 }
 
-.part_box li {
+.RankBox .part_box li {
     display: inline-block;
     width: 10.5vh;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -37,31 +36,31 @@
     font-size: 32px;
 }
 
-.part_box li p {
+.RankBox .part_box li p {
     display: inline;
     position: relative;
 }
 
-.showmore {
+.RankBox .showmore {
     flex: 1;
     overflow: hidden;
-    padding-left: 1.667vw;
+    padding-left: 5px;
     padding-top: 8px;
     cursor: pointer;
 }
 
-.showmore i {
+.RankBox .showmore i {
     font-size: 5.5vw;
     width: 100%;
     height: 100%;
     display: inline-block;
 }
 
-.activate {
+.RankBox .activate {
     color: #fb7299;
 }
 
-.activate::after {
+.RankBox .activate::after {
     content: '';
     width: 90%;
     height: 50px;
@@ -72,7 +71,7 @@
     transform: translateX(-50%);
 }
 
-.part_box_more {
+.RankBox .part_box_more {
     width: 100%;
     overflow: hidden;
     position: absolute;
@@ -83,7 +82,7 @@
     animation-iteration-count: 1;
 }
 
-.showPart {
+.RankBox .showPart {
     height: auto;
 }
 

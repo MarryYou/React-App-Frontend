@@ -18,16 +18,21 @@ class SwiperBox extends Component {
     };
   }
   getBannerList = () => {
-    return axios.get("http://localhost:8888/banner");
+    return axios.get("http://127.0.0.1:8888/banner");
   };
   componentWillMount() {}
   componentDidMount() {
     this.getBannerList().then(res => {
       const List = [];
       res.data.data.map(item => {
-        List.push({ image: item.pic, title: item.name });
+        List.push({
+          image: item.localaddress,
+          title: item.name
+        });
       });
-      this.setState({ bannerList: List });
+      this.setState({
+        bannerList: List
+      });
     });
   }
   render() {
@@ -38,7 +43,7 @@ class SwiperBox extends Component {
           swiperOptions={this.state.swiperOptions}
           showPagination
           items={this.state.bannerList}
-        />
+        />{" "}
       </div>
     );
   }
