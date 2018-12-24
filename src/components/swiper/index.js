@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Swiper, Flex, FlexItem } from "react-weui";
+import { domain } from "../../config";
 import "weui";
 import "react-weui/build/packages/react-weui.css";
 import "./index.css";
@@ -18,7 +19,7 @@ class SwiperBox extends Component {
     };
   }
   getBannerList = () => {
-    return axios.get("http://59.110.243.107:8086/banner");
+    return axios.get(domain + "/banner");
   };
   componentWillMount() {}
   componentDidMount() {

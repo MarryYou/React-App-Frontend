@@ -21,6 +21,10 @@
     font-size: 40px;
 }
 
+.TabBar .weui-tabbar__label {
+    font-size: 3.6vw;
+}
+
 .TabBar .weui-tabbar__item.weui-bar__item_on .weui-tabbar__icon>i,
 .weui-tabbar__item.weui-bar__item_on .weui-tabbar__label {
     color: #de698c;
