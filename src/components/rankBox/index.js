@@ -79,6 +79,10 @@ class RankBox extends Component {
               paddingBottom: "1.5vh"
             }}
             tabs={tabs}
+            tabBarActiveTextColor="#fb7299"
+            tabBarUnderlineStyle={{
+              borderColor: "#fb7299"
+            }}
             onChange={this.tabsChange}
             onTabClick={this.onTabClick}
             initialPage={this.initialPage}

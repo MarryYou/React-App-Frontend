@@ -1,0 +1,134 @@
+.rankCard {
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+}
+
+.rankCard .left {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.rankCard .left img {
+    width: 5vw;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.rankCard .left .rankIndex {
+    display: block;
+    color: #999;
+    font-weight: 600;
+    font-size: 3vw;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.rankCard .right {
+    flex: 9;
+    display: flex;
+    overflow: hidden;
+}
+
+.rankCard .pic {
+    flex: 4;
+    overflow: hidden;
+    border: 1px solid #fff;
+    border-radius: 20px;
+}
+
+.rankCard .pic img {
+    width: 100%;
+    border: 1px solid #fff;
+    border-radius: 20px;
+}
+
+.rankCard .art-box {
+    flex: 6;
+    color: #212121;
+    font-weight: 700;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.rankCard .art-box .art-title {
+    height: 5vh;
+    overflow: hidden;
+    font-size: 3vw;
+    text-align: left;
+    padding: 1vw 2vw;
+    color: #212121;
+}
+
+.rankCard .art-up {
+    padding: 1vw 2vw;
+
+}
+
+.rankCard .art-up .up-icon {
+    display: inline-block;
+    position: relative;
+}
+
+.rankCard .art-up .up-icon img {
+    width: 4vw;
+    vertical-align: middle;
+    margin-top: -1vw;
+}
+
+.rankCard .art-up .up-name {
+    display: inline-block;
+    vertical-align: middle;
+    color: #999;
+    font-weight: 600;
+    margin-left: 1vw;
+}
+
+.rankCard .art-video {
+    padding: 0 2vw;
+
+}
+
+.rankCard .art-video .video-icon {
+    display: inline-block;
+    position: relative;
+}
+
+.rankCard .art-video .video-icon img {
+    width: 4vw;
+    vertical-align: middle;
+    margin-top: -1vw;
+}
+
+.rankCard .art-video .video-number {
+    display: inline-block;
+    vertical-align: middle;
+    color: #999;
+    font-weight: 500;
+    margin-left: 1vw;
+}
+
+.rankCard .art-video .danmu-icon {
+    display: inline-block;
+    margin-left: 5vw;
+    position: relative;
+}
+
+.rankCard .art-video .danmu-icon img {
+    width: 4vw;
+    vertical-align: middle;
+    margin-top: -1vw;
+}
+
+.rankCard .art-video .danmu-number {
+    display: inline-block;
+    vertical-align: middle;
+    color: #999;
+    font-weight: 500;
+    margin-left: 1vw;
+}
