@@ -23,7 +23,9 @@
         font-size: 4vw;
     }
     
-    .card-list {}
+    .card-list {
+        padding-bottom: 6vh;
+    }
     
     .segment-update {
         width: 85vw;
