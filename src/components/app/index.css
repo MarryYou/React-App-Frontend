@@ -8,13 +8,13 @@
     
     .container {
         width: 100vw;
-        height: 86vh;
+        height: 82vh;
         overflow: hidden;
     }
     
     .card-container {
         width: 100vw;
-        height: 73vh;
+        height: 70vh;
         overflow-x: hidden;
         overflow-y: auto;
     }
