@@ -99,7 +99,7 @@ class rank extends Component {
             {this.state.rankList.length > 0 && (
               <div className="card-list">
                 {rankList.map((item, key) => {
-                  if (key < 5) {
+                  if (key < 30) {
                     return (
                       <RankCard
                         key={key}

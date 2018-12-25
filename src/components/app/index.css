@@ -22,8 +22,8 @@
     .card-list {}
     
     .segment-update {
-        width: 75vw;
-        height: 3.5vh;
+        width: 85vw;
+        height: 4.5vh;
         margin: 1.5vh auto;
         color: #fb7299;
     }
@@ -35,6 +35,5 @@
     .segment-update .am-segment-item {
         border-color: #fb7299;
         color: #fb7299;
-        font-size: 3vw;
-        font-weight: 600;
+        font-size: 4vw;
     }
