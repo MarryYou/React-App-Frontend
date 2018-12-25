@@ -7,29 +7,7 @@ class RankBox extends Component {
     super(props);
   }
   componentDidMount() {}
-  partChange = e => {
-    if (e.target.nodeName == "LI") {
-      this.clearActivate(this.partlist);
-      e.target.querySelector("p").className += " activate";
-    } else if (e.target.nodeName == "P") {
-      this.clearActivate(this.partlist);
-      e.target.className += " activate";
-    }
-  };
 
-  onTabClick = tab => {
-    console.log(tab);
-  };
-
-  clearActivate = node => {
-    node.childNodes.forEach(item => {
-      if (item.querySelector("p").className.includes(" activate")) {
-        item.querySelector("p").className = item
-          .querySelector("p")
-          .className.replace(" activate", "");
-      }
-    });
-  };
   renderContent = tab => (
     <div
       style={{
@@ -44,11 +22,12 @@ class RankBox extends Component {
     </div>
   );
   render() {
+    const { onTabChange } = this.props;
     const tabs = [
       { title: "首页", tid: 0 },
       { title: "动画", tid: 1 },
-      { title: "番剧", tid: 13 },
-      { title: "国创", tid: 167 },
+      { title: "番剧", tid: 33 },
+      { title: "国创", tid: 168 },
       { title: "音乐", tid: 3 },
       { title: "舞蹈", tid: 129 },
       { title: "科技", tid: 36 },
@@ -60,9 +39,7 @@ class RankBox extends Component {
       { title: "纪录片", tid: 177 },
       { title: "影视", tid: 181 },
       { title: "时尚", tid: 155 },
-      { title: "生活", tid: 160 },
-      { title: "广告", tid: 165 },
-      { title: "相簿", tid: 999 }
+      { title: "生活", tid: 160 }
     ];
     return (
       <div className="RankBox">
@@ -79,13 +56,10 @@ class RankBox extends Component {
               paddingBottom: "1.5vh"
             }}
             tabs={tabs}
+            destroyInactiveTab={true}
             tabBarActiveTextColor="#fb7299"
-            tabBarUnderlineStyle={{
-              borderColor: "#fb7299"
-            }}
-            onChange={this.tabsChange}
-            onTabClick={this.onTabClick}
-            initialPage={this.initialPage}
+            tabBarUnderlineStyle={{ borderColor: "#fb7299" }}
+            onChange={tab => onTabChange(tab)}
             renderTabBar={props => {
               return (
                 <Tabs.DefaultTabBar
@@ -99,6 +73,12 @@ class RankBox extends Component {
             }}
           />
         </div>
+        {/* <div className="update-box">
+          <i class="fa fa-clock-o" aria-hidden="true" />
+          <div className="update-list">
+          
+          </div>
+        </div> */}
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import "antd-mobile/dist/antd-mobile.css";
 import "./index.css";
 import Header from "../header";
 import TabBarBox from "../tabbar";
@@ -10,6 +11,7 @@ import RankBox from "../rankBox";
 import RankCard from "../rankcard";
 import { domain } from "../../config";
 import axios from "axios";
+import { SegmentedControl } from "antd-mobile";
 const index = () => (
   <div>
     <NavBox />
@@ -52,15 +54,29 @@ const project = () => (
     <p>project page</p>
   </div>
 );
+const SegmentNumber = [1, 3, 7];
 class rank extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      rankList: []
+      rankList: [],
+      segmentCheckIndex: 1,
+      ridIndex: 0
     };
   }
-  getRankList = () => {
-    axios.get(domain + "/rank").then(res => {
+  onTabChange = tab => {
+    this.setState({ ridIndex: tab.tid });
+    this.getRankList(tab.tid, SegmentNumber[this.state.segmentCheckIndex]);
+  };
+  onSegmentChange = e => {
+    let Index = e.nativeEvent.selectedSegmentIndex;
+    this.setState({ segmentCheckIndex: Index });
+    this.getRankList(this.state.ridIndex, SegmentNumber[Index]);
+  };
+  getRankList = (rid, day) => {
+    rid = rid || 0;
+    day = day || 3;
+    axios.get(domain + "/rank?rid=" + rid + "&day=" + day).then(res => {
       this.setState({ rankList: res.data.list.data.list });
     });
   };
@@ -72,22 +88,30 @@ class rank extends Component {
     if (rankList.length > 0) {
       return (
         <div>
-          <RankBox />
+          <RankBox onTabChange={this.onTabChange} />
+          <SegmentedControl
+            className="segment-update"
+            selectedIndex={this.state.segmentCheckIndex}
+            values={["最近一天", "最近三天", "最近一周"]}
+            onChange={e => this.onSegmentChange(e)}
+          />
           <div className="card-container">
             {this.state.rankList.length > 0 && (
               <div className="card-list">
                 {rankList.map((item, key) => {
-                  return (
-                    <RankCard
-                      key={key}
-                      rankIndex={key}
-                      rankImg={item.localaddress}
-                      rankTitle={item.title}
-                      upName={item.author}
-                      videoNumber={item.play}
-                      danmuNumber={item.video_review}
-                    />
-                  );
+                  if (key < 5) {
+                    return (
+                      <RankCard
+                        key={key}
+                        rankIndex={key}
+                        rankImg={item.localaddress}
+                        rankTitle={item.title}
+                        upName={item.author}
+                        videoNumber={item.play}
+                        danmuNumber={item.video_review}
+                      />
+                    );
+                  }
                 })}
               </div>
             )}

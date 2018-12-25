@@ -2,6 +2,7 @@
     width: 100vw;
     overflow: hidden;
     display: flex;
+    margin: 1vh 0;
 }
 
 .rankCard .left {
@@ -52,7 +53,6 @@
 .rankCard .art-box {
     flex: 6;
     color: #212121;
-    font-weight: 700;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -67,7 +67,6 @@
 
 .rankCard .art-up {
     padding: 1vw 2vw;
-
 }
 
 .rankCard .art-up .up-icon {
@@ -85,13 +84,11 @@
     display: inline-block;
     vertical-align: middle;
     color: #999;
-    font-weight: 600;
     margin-left: 1vw;
 }
 
 .rankCard .art-video {
     padding: 0 2vw;
-
 }
 
 .rankCard .art-video .video-icon {

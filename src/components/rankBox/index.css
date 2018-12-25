@@ -4,9 +4,10 @@
 }
 
 .RankBox .part_box_one {
-    width: 100%;
+    width: 100vw;
     overflow: hidden;
     position: relative;
+    display: inline-block;
     color: #757575;
     background: #fff;
     z-index: 1;
@@ -114,4 +115,21 @@
 
 .RankBox .am-tabs-default-bar-top .am-tabs-default-bar-tab:after {
     background-color: #fff !important;
+}
+
+.RankBox .update-box {
+    width: 8vw;
+    height: 4.5vh;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.RankBox .update-box i {
+    font-size: 4vw;
+    color: #999;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
