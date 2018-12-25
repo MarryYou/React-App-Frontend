@@ -59,11 +59,10 @@
 }
 
 .rankCard .art-box .art-title {
-    height: 6vh;
     overflow: hidden;
     font-size: 3.5vw;
     text-align: left;
-    padding: 1vw 2vw;
+    padding: 0 2vw;
     font-weight: 600;
     color: #212121;
 }

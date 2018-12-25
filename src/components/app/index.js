@@ -11,7 +11,7 @@ import RankBox from "../rankBox";
 import RankCard from "../rankcard";
 import { domain } from "../../config";
 import axios from "axios";
-import { SegmentedControl } from "antd-mobile";
+import { SegmentedControl, Toast } from "antd-mobile";
 const index = () => (
   <div>
     <NavBox />
@@ -64,6 +64,7 @@ class rank extends Component {
       ridIndex: 0
     };
   }
+
   onTabChange = tab => {
     this.setState({ ridIndex: tab.tid });
     this.getRankList(tab.tid, SegmentNumber[this.state.segmentCheckIndex]);
@@ -76,8 +77,18 @@ class rank extends Component {
   getRankList = (rid, day) => {
     rid = rid || 0;
     day = day || 3;
+    Toast.loading(
+      "正在加载中...",
+      0,
+      () => {
+        // console.log("Load ....");
+      },
+      true
+    );
+    this.setState({ rankList: [] });
     axios.get(domain + "/rank?rid=" + rid + "&day=" + day).then(res => {
       this.setState({ rankList: res.data.list.data.list });
+      Toast.hide();
     });
   };
   componentDidMount() {
@@ -85,46 +96,38 @@ class rank extends Component {
   }
   render() {
     const rankList = this.state.rankList;
-    if (rankList.length > 0) {
-      return (
-        <div>
-          <RankBox onTabChange={this.onTabChange} />
-          <SegmentedControl
-            className="segment-update"
-            selectedIndex={this.state.segmentCheckIndex}
-            values={["最近一天", "最近三天", "最近一周"]}
-            onChange={e => this.onSegmentChange(e)}
-          />
-          <div className="card-container">
-            {this.state.rankList.length > 0 && (
-              <div className="card-list">
-                {rankList.map((item, key) => {
-                  if (key < 30) {
-                    return (
-                      <RankCard
-                        key={key}
-                        rankIndex={key}
-                        rankImg={item.localaddress}
-                        rankTitle={item.title}
-                        upName={item.author}
-                        videoNumber={item.play}
-                        danmuNumber={item.video_review}
-                      />
-                    );
-                  }
-                })}
-              </div>
-            )}
-          </div>
-        </div>
-      );
-    } else {
-      return (
+    return (
+      <div>
+        <RankBox onTabChange={this.onTabChange} />
+        <SegmentedControl
+          className="segment-update"
+          selectedIndex={this.state.segmentCheckIndex}
+          values={["最近一天", "最近三天", "最近一周"]}
+          onChange={e => this.onSegmentChange(e)}
+        />
         <div className="card-container">
-          <RankBox />
+          {this.state.rankList.length > 0 && (
+            <div className="card-list">
+              {rankList.map((item, key) => {
+                if (key < 30) {
+                  return (
+                    <RankCard
+                      key={key}
+                      rankIndex={key}
+                      rankImg={item.localaddress}
+                      rankTitle={item.title}
+                      upName={item.author}
+                      videoNumber={item.play}
+                      danmuNumber={item.video_review}
+                    />
+                  );
+                }
+              })}
+            </div>
+          )}
         </div>
-      );
-    }
+      </div>
+    );
   }
 }
 

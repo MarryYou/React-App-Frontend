@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "antd-mobile/dist/antd-mobile.css";
 import "./index.css";
-import { Tabs, WhiteSpace } from "antd-mobile";
+import { Tabs } from "antd-mobile";
 class RankBox extends Component {
   constructor(props) {
     super(props);
@@ -58,7 +58,10 @@ class RankBox extends Component {
             tabs={tabs}
             destroyInactiveTab={true}
             tabBarActiveTextColor="#fb7299"
-            tabBarUnderlineStyle={{ borderColor: "#fb7299" }}
+            tabBarUnderlineStyle={{
+              borderColor: "#fb7299",
+              borderWidth: ".22vw"
+            }}
             onChange={tab => onTabChange(tab)}
             renderTabBar={props => {
               return (
@@ -84,64 +87,4 @@ class RankBox extends Component {
   }
 }
 
-/**
- *             // <ul
-            //   className="part_box"
-            //   ref={node => {
-            //     this.partlist = node;
-            //   }}
-            //   onClick={e => {
-            //     this.partChange(e);
-            //   }}
-            // >
-            //   <li tid={0} sortid={0}>
-            //     <p className=" activate">全站</p>
-            //   </li>
-            //   <li tid={1} sortid={1}>
-            //     <p>动画</p>
-            //   </li>
-            //   <li tid={13} sortid={2}>
-            //     <p>番剧</p>
-            //   </li>
-            //   <li tid={167} sortid={3}>
-            //     <p>国创</p>
-            //   </li>
-            //   <li tid={3} sortid={4}>
-            //     <p>音乐</p>
-            //   </li>
-            //   <li tid={129} sortid={5}>
-            //     <p>舞蹈</p>
-            //   </li>
-            //   <li tid={36} sortid={6}>
-            //     <p>科技</p>
-            //   </li>
-            //   <li tid={4} sortid={7}>
-            //     <p>游戏</p>
-            //   </li>
-            //   <li tid={5} sortid={8}>
-            //     <p>娱乐</p>
-            //   </li>
-            //   <li tid={119} sortid={9}>
-            //     <p>鬼畜</p>
-            //   </li>
-            //   <li tid={23} sortid={10}>
-            //     <p>电影</p>
-            //   </li>
-            //   <li tid={11} sortid={11}>
-            //     <p>电视剧</p>
-            //   </li>
-            //   <li tid={177} sortid={12}>
-            //     <p>纪录片</p>
-            //   </li>
-            //   <li tid={181} sortid={13}>
-            //     <p>影视</p>
-            //   </li>
-            //   <li tid={155} sortid={14}>
-            //     <p>时尚</p>
-            //   </li>
-            //   <li tid={160} sortid={15}>
-            //     <p>生活</p>
-            //   </li>
-            // </ul>
- */
 export default RankBox;
