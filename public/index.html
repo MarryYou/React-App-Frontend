@@ -3,17 +3,16 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="theme-color" content="#000000">
     <link rel="stylesheet" href="./normalize.css">
     <link rel="stylesheet" href="./animate.css">
-    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="./font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <script src="flexible.js"></script>
     <script src="./viewport-units-buggyfill.hacks.min.js,viewport-units-buggyfill.min.js"></script>
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
@@ -47,6 +46,13 @@
             window.viewportUnitsBuggyfill.init({
                 hacks: window.viewportUnitsBuggyfillHacks
             });
+
+            var winDPI = window.devicePixelRatio;
+            var uAgent = window.navigator.userAgent;
+            var screenHeight = window.screen.height;
+            var screenWidth = window.screen.width;
+            var winWidth = window.innerWidth;
+            var winHeight = window.innerHeight;
         }
     </script>
 </body>

@@ -14,7 +14,7 @@ class RankBox extends Component {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        height: "150px",
+        height: "7vh",
         backgroundColor: "#fff"
       }}
     >

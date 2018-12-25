@@ -14,9 +14,9 @@
 }
 
 .RankBox .part_content {
-    padding: 5px;
-    width: 100%;
-    height: 8.4vw;
+    padding: 1vw;
+    width: 100vw;
+    height: 8.4vh;
     overflow: hidden;
     display: inline-block;
     position: relative;
@@ -34,7 +34,7 @@
     width: 10.5vh;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: center;
-    font-size: 32px;
+    font-size: 5vw;
 }
 
 .RankBox .part_box li p {
@@ -45,8 +45,8 @@
 .RankBox .showmore {
     flex: 1;
     overflow: hidden;
-    padding-left: 5px;
-    padding-top: 8px;
+    padding-left: 1vw;
+    padding-top: 1vw;
     cursor: pointer;
 }
 
@@ -73,7 +73,7 @@
 }
 
 .RankBox .part_box_more {
-    width: 100%;
+    width: 100vw;
     overflow: hidden;
     position: absolute;
     z-index: 10;

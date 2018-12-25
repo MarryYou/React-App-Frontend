@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./index.css";
+import { domain } from "../../config";
 class RankCard extends Component {
   render() {
     const {
@@ -14,22 +15,13 @@ class RankCard extends Component {
       <div className="rankCard">
         <div className="left">
           {rankIndex == 0 && (
-            <img
-              src="http://localhost:8086/static/image/icon/rank1.png"
-              alt=""
-            />
+            <img src={domain + "/static/image/icon/rank1.png"} alt="" />
           )}
           {rankIndex == 1 && (
-            <img
-              src="http://localhost:8086/static/image/icon/rank2.png"
-              alt=""
-            />
+            <img src={domain + "/static/image/icon/rank2.png"} alt="" />
           )}
           {rankIndex == 2 && (
-            <img
-              src="http://localhost:8086/static/image/icon/rank3.png"
-              alt=""
-            />
+            <img src={domain + "/static/image/icon/rank3.png"} alt="" />
           )}
           {rankIndex > 2 && <p className="rankIndex">{rankIndex + 1}</p>}
         </div>
@@ -41,10 +33,7 @@ class RankCard extends Component {
             <p className="art-title">{rankTitle}</p>
             <div className="art-up">
               <div className="up-icon">
-                <img
-                  src="http://localhost:8086/static/image/icon/ico_up.png"
-                  alt=""
-                />
+                <img src={domain + "/static/image/icon/ico_up.png"} alt="" />
               </div>
               <div className="up-name">
                 <span>{upName}</span>
@@ -52,19 +41,13 @@ class RankCard extends Component {
             </div>
             <div className="art-video">
               <div className="video-icon">
-                <img
-                  src="http://localhost:8086/static/image/icon/ico_play.png"
-                  alt=""
-                />
+                <img src={domain + "/static/image/icon/ico_play.png"} alt="" />
               </div>
               <div className="video-number">
                 <span>{videoNumber}</span>
               </div>
               <div className="danmu-icon">
-                <img
-                  src="http://localhost:8086/static/image/icon/ico_danmu.png"
-                  alt=""
-                />
+                <img src={domain + "/static/image/icon/ico_danmu.png"} alt="" />
               </div>
               <div className="danmu-number">
                 <span>{danmuNumber}</span>

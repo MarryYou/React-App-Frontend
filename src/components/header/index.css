@@ -1,12 +1,12 @@
     .website-img {
         display: inline-block;
-        margin-left: 30px;
-        width: 120px;
+        margin-left: 3vw;
+        width: 20vw;
     }
     
     .nav {
-        padding: 10px;
-        padding-bottom: 30px;
+        padding: 3vw;
+        padding-bottom: 4vw;
         position: relative;
         z-index: 1000;
         background: #fff;
@@ -16,21 +16,21 @@
         display: inline-flex;
         color: rgb(222, 105, 140);
         position: relative;
-        left: 110px;
-        font-size: 30px;
-        top: -15px;
+        left: 14vw;
+        font-size: 4vw;
+        top: -3vw;
     }
     
     .github-link {
         display: inline-flex;
         overflow: hidden;
-        width: 48px;
-        margin: 0 50px;
-        border: 2px solid #b2b2b2;
+        width: 8vw;
+        margin: 0 5vw;
+        border: .3vw solid #b2b2b2;
         border-radius: 50%;
         position: absolute;
-        right: -20px;
-        top: 15px;
+        right: -3vw;
+        top: 3vw;
     }
     
     .github-iocn {
