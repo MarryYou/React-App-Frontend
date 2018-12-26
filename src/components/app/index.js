@@ -12,29 +12,93 @@ import RankCard from "../rankcard";
 import { domain } from "../../config";
 import axios from "axios";
 import { SegmentedControl, Toast } from "antd-mobile";
-const index = () => (
-  <div>
-    <NavBox />
-    <div className="card-container">
-      <SwiperBox />
-      <CardBox />
-      <CardBox />
-      <CardBox />
-      <CardBox />
-      <CardBox />
-      <CardBox />
-      <CardBox />
-      <CardBox />
-      <CardBox />
-      <CardBox />
-      <CardBox />
-      <CardBox />
-      <CardBox />
-      <CardBox />
-      <CardBox />
-    </div>
-  </div>
-);
+class index extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      rankList: [],
+      ridIndex: 0
+    };
+  }
+
+  onTabChange = tab => {
+    this.setState({ ridIndex: tab.tid });
+    this.getRankList(tab.tid, 1);
+  };
+  getRankList = (rid, day) => {
+    rid = rid || 0;
+    day = day || 3;
+    Toast.loading(
+      "正在加载中...",
+      0,
+      () => {
+        // console.log("Load ....");
+      },
+      true
+    );
+    this.setState({ rankList: [] });
+    axios.get(domain + "/rank?rid=" + rid + "&day=" + day).then(res => {
+      this.setState({ rankList: res.data.list.data.list });
+      Toast.hide();
+    });
+  };
+  componentDidMount() {
+    this.getRankList();
+  }
+  render() {
+    const rankList = this.state.rankList;
+    return (
+      <div>
+        <NavBox onTabChange={this.onTabChange} />
+        <div className="card-container">
+          <SwiperBox />
+          {this.state.rankList.length > 0 && (
+            <div className="card-list">
+              {rankList.map((item, key) => {
+                if (key < 30) {
+                  return (
+                    <RankCard
+                      key={key}
+                      rankIndex={key}
+                      rankImg={item.localaddress}
+                      rankTitle={item.title}
+                      upName={item.author}
+                      videoNumber={item.play}
+                      danmuNumber={item.video_review}
+                    />
+                  );
+                }
+              })}
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
+}
+// const index = () => (
+//   <div>
+//     <NavBox onTabChange={this.onTabChange} />
+//     <div className="card-container">
+//       <SwiperBox />
+//       <CardBox />
+//       <CardBox />
+//       <CardBox />
+//       <CardBox />
+//       <CardBox />
+//       <CardBox />
+//       <CardBox />
+//       <CardBox />
+//       <CardBox />
+//       <CardBox />
+//       <CardBox />
+//       <CardBox />
+//       <CardBox />
+//       <CardBox />
+//       <CardBox />
+//     </div>
+//   </div>
+// );
 // const rank = () => (
 //   <div className="card-container">
 //     <RankBox />

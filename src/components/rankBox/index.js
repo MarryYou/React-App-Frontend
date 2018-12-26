@@ -41,6 +41,7 @@ class RankBox extends Component {
       { title: "时尚", tid: 155 },
       { title: "生活", tid: 160 }
     ];
+
     return (
       <div className="RankBox">
         <div
@@ -76,12 +77,6 @@ class RankBox extends Component {
             }}
           />
         </div>
-        {/* <div className="update-box">
-          <i class="fa fa-clock-o" aria-hidden="true" />
-          <div className="update-list">
-          
-          </div>
-        </div> */}
       </div>
     );
   }
