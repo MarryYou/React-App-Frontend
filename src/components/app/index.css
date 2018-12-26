@@ -48,3 +48,9 @@
         width: 100vw;
         height: 73vh;
     }
+    .index-container{
+        width: 100vw;
+        height: 77.5vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }

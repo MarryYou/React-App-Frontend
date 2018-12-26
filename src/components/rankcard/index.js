@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import "./index.css";
 import { domain } from "../../config";
 class RankCard extends Component {
+  sliceTitle = str => {
+    return str.slice(0, 26);
+  };
   render() {
     const {
       rankIndex,
@@ -30,7 +33,7 @@ class RankCard extends Component {
             <img src={rankImg} alt="" />
           </div>
           <div className="art-box">
-            <p className="art-title">{rankTitle}</p>
+            <p className="art-title">{this.sliceTitle(rankTitle)}</p>
             <div className="art-up">
               <div className="up-icon">
                 <img src={domain + "/static/image/icon/ico_up.png"} alt="" />

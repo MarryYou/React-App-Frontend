@@ -1,0 +1,10 @@
+.SubBox {
+    height: 5vh;
+    padding: 1vw 0;
+    background: #fff;
+    color: #757575
+}
+
+.SubBox .am-tabs-default-bar-top .am-tabs-default-bar-tab:after {
+    background-color: #fff !important;
+}

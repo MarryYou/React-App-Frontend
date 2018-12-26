@@ -71,6 +71,7 @@ class NavBox extends Component {
       { title: "影视", tid: 181 },
       { title: "时尚", tid: 155 },
       { title: "生活", tid: 160 },
+      { title: "广告", tid: 165 },
       { title: "相簿", tid: 999 }
     ];
 
@@ -143,7 +144,7 @@ class NavBox extends Component {
               <p>广告</p>
             </li>
             <li tid={999} sortid={17}>
-              <p>相册</p>
+              <p>相簿</p>
             </li>
           </ul>
           <div
@@ -173,7 +174,9 @@ class NavBox extends Component {
                 borderColor: "#fb7299",
                 borderWidth: ".22vw"
               }}
-              onChange={tab => onTabChange(tab)}
+              onChange={(tab, index) =>
+                onTabChange(tab, index, this.partMoreList)
+              }
               renderTabBar={props => {
                 return (
                   <Tabs.DefaultTabBar

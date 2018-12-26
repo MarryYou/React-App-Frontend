@@ -1,16 +1,17 @@
 .CardBox {
-    width: 46.5vw;
-    margin: 0 10px 30px 10px;
+    width: 50vw;
     overflow: hidden;
+    margin: 1vh 0;
     display: inline-block;
     height: 23vh;
 }
 
 .CardBox .pic {
-    width: 100vw;
     height: 17vh;
+    width: 92%;
     overflow: hidden;
     border: 1px solid #fff;
+    margin: 0 auto;
     border-radius: 3vw;
 }
 
@@ -23,10 +24,10 @@
 
 .CardBox .article_tit {
     color: #212121;
-    height: 6vh;
-    padding-top: 5px;
+    width: 92%;
+    margin: 0 auto;
     overflow: hidden;
-    font-size: 22px;
+    font-size: 3vw;
     font-weight: 700;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: left;
