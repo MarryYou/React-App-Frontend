@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import "./index.css";
 import "antd-mobile/dist/antd-mobile.css";
-import "./index.css";
 import { domain, partitionList } from "../../config";
 import axios from "axios";
 import { Toast } from "antd-mobile";
@@ -9,6 +7,8 @@ import SwiperBox from "../swiper";
 import NavBox from "../navbox";
 import CardBox from "../card";
 import SubBox from "../subbox";
+import { Card, WingBlank, WhiteSpace } from "antd-mobile";
+import "./index.css";
 
 class Main extends Component {
   constructor(props) {
@@ -67,6 +67,12 @@ class Main extends Component {
               ]}
             />
           )}
+          <Card>
+            <Card.Header title="热门推荐" />
+            <Card.Body>
+              <div>This is content of `Card`</div>
+            </Card.Body>
+          </Card>
           {/* {this.state.firstList.length > 0 && (
             <div className="card-list">
               {this.state.firstList.map((item, key) => {

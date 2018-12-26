@@ -1,3 +1,10 @@
-.Main {
-    color: blue
+.Main {}
+
+.am-card {
+    background: #f4f4f4;
+    padding: 1.5vw;
+}
+
+.am-card-header {
+    font-size: 5vw;
 }
