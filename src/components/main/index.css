@@ -2,11 +2,11 @@
 
 .am-card {
     background: #f4f4f4;
-    padding: 1.5vw;
 }
 
 .am-card-header {
-    font-size: 5vw;
+    font-size: 4.5vw;
+    padding: 1.5vw 0 1.5vw 5vw;
 }
 
 .am-card-body {
@@ -14,5 +14,9 @@
 }
 
 .classify-container .CardBox {
-    width: 48vw;
+    width: 50vw;
+}
+
+.f-card {
+    padding-bottom: 5vh;
 }

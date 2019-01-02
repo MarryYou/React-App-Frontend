@@ -31,6 +31,7 @@ class Main extends Component {
     if (partitionList[tab.tid]) {
       subs = [{ title: "推荐", tid: tab.tid }, ...partitionList[tab.tid]];
     }
+    this.setState({ regionList: [] });
     this.setState({ ridIndex: tab.tid });
     this.getRegionList(tab.tid, subs);
   };
@@ -38,16 +39,17 @@ class Main extends Component {
   getRegionList = (rid, subs) => {
     rid = rid || 0;
     subs = subs || [];
-    // Toast.loading("正在加载中...", 0, () => {}, true);
+    Toast.loading("正在加载中...", 0, () => {}, true);
     if (rid == 0) {
       axios.get(domain + "/rank?rid=119&day=3").then(res => {
+        Toast.hide();
         this.setState({ regionList: res.data.list.data.list });
-        // Toast.hide();
       });
     } else {
       axios
         .get(domain + "/region?rid=" + rid + "&subs=" + JSON.stringify(subs))
         .then(res => {
+          Toast.hide();
           this.setState({ regionList: res.data.data });
         });
     }
@@ -70,41 +72,46 @@ class Main extends Component {
               ]}
             />
           )}
-          {this.state.ridIndex == 0 &&
-            regionList.map((item, key) => {
-              return (
-                <CardBox
-                  key={key}
-                  localaddress={item.localaddress}
-                  title={item.title}
-                />
-              );
-            })}
-          {this.state.ridIndex != 0 &&
-            regionList.map((item, key) => {
-              return (
-                <Card key={key}>
-                  {key == 0 && <Card.Header title="热门推荐" />}
-                  {key > 0 && <Card.Header title={item.name} />}
-                  <Card.Body>
-                    <div className="classify-container">
-                      {item.list &&
-                        item.list.map((subItem, subkey) => {
-                          if (subkey < 4) {
-                            return (
-                              <CardBox
-                                key={subkey}
-                                localaddress={subItem.localaddress}
-                                title={subItem.title}
-                              />
-                            );
-                          }
-                        })}
-                    </div>
-                  </Card.Body>
-                </Card>
-              );
-            })}
+          <div className="f-card">
+            {this.state.ridIndex == 0 &&
+              regionList.length > 0 &&
+              regionList.map((item, key) => {
+                if (key < 20) {
+                  return (
+                    <CardBox
+                      key={key}
+                      localaddress={item.localaddress}
+                      title={item.title}
+                    />
+                  );
+                }
+              })}
+            {this.state.ridIndex != 0 &&
+              regionList.map((item, key) => {
+                return (
+                  <Card key={key}>
+                    {key == 0 && <Card.Header title="热门推荐" />}
+                    {key > 0 && <Card.Header title={item.name} />}
+                    <Card.Body>
+                      <div className="classify-container">
+                        {item.list &&
+                          item.list.map((subItem, subkey) => {
+                            if (subkey < 4) {
+                              return (
+                                <CardBox
+                                  key={subkey}
+                                  localaddress={subItem.localaddress}
+                                  title={subItem.title}
+                                />
+                              );
+                            }
+                          })}
+                      </div>
+                    </Card.Body>
+                  </Card>
+                );
+              })}
+          </div>
         </div>
       </div>
     );
