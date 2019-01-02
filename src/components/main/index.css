@@ -8,3 +8,11 @@
 .am-card-header {
     font-size: 5vw;
 }
+
+.am-card-body {
+    padding: 0;
+}
+
+.classify-container .CardBox {
+    width: 48vw;
+}
