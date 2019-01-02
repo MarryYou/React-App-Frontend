@@ -27,7 +27,10 @@ class Main extends Component {
   onTabChange = (tab, index, list) => {
     this.clearActivate(list, "p", " activate");
     list.childNodes[index].querySelector("p").className += " activate";
-    let subs = [{ title: "推荐", tid: tab.tid }, ...partitionList[tab.tid]];
+    let subs = [];
+    if (partitionList[tab.tid]) {
+      subs = [{ title: "推荐", tid: tab.tid }, ...partitionList[tab.tid]];
+    }
     this.setState({ ridIndex: tab.tid });
     this.getRegionList(tab.tid, subs);
   };
