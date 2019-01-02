@@ -38,7 +38,9 @@ class SubBox extends Component {
             borderColor: "#fff",
             borderWidth: ".22vw"
           }}
-          onChange={tab => onTabChange()}
+          onChange={(tab, index) => {
+            onTabChange(tab, index);
+          }}
           renderTabBar={props => {
             return (
               <Tabs.DefaultTabBar
