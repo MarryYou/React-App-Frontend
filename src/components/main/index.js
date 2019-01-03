@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "antd-mobile/dist/antd-mobile.css";
 import { domain, partitionList } from "../../config";
 import axios from "axios";
@@ -7,8 +8,9 @@ import SwiperBox from "../swiper";
 import NavBox from "../navbox";
 import CardBox from "../card";
 import SubBox from "../subbox";
-import { Card, WingBlank, WhiteSpace } from "antd-mobile";
+import { Card, WingBlank, WhiteSpace, Button } from "antd-mobile";
 import "./index.css";
+import CardFooter from "antd-mobile/lib/card/CardFooter";
 
 class Main extends Component {
   constructor(props) {
@@ -17,7 +19,9 @@ class Main extends Component {
       regionList: [],
       ridIndex: 0,
       subRegionFlag: false,
-      subRegionList: []
+      subRegionList: [],
+      subNewspage: 1,
+      subRidIndex: 1
     };
   }
   clearActivate = (node, ele, clasname) => {
@@ -48,11 +52,14 @@ class Main extends Component {
         { title: "推荐", tid: tab.tid },
         ...partitionList[tab.tid]
       ]);
+      this.setState({ subRegionList: [] });
     } else {
       this.setState({ subRegionFlag: true });
       this.setState({ regionList: [] });
+      this.setState({ subRegionList: [] });
       this.getSubregion(tab.tid);
     }
+    this.setState({ subRidIndex: tab.tid });
   };
   getRegionList = (rid, subs) => {
     rid = rid || 0;
@@ -72,37 +79,42 @@ class Main extends Component {
         });
     }
   };
+  newsLoadMore = () => {
+    this.setState({ subNewspage: this.state.subNewspage + 1 });
+    axios
+      .get(
+        domain +
+          "/subregion?rid=" +
+          this.state.subRidIndex +
+          "&classify=news" +
+          "&page=" +
+          (this.state.subNewspage + 1)
+      )
+      .then(res => {
+        let newList = this.state.subRegionList.news.concat(res.data.news);
+        this.setState({
+          subRegionList: {
+            recommand: this.state.subRegionList.recommand,
+            news: newList
+          }
+        });
+      });
+  };
   getSubregion = (rid, classify, page) => {
     rid = rid || 1;
     classify = classify || null;
     page = page || 1;
     Toast.loading("正在加载中...", 0, () => {}, true);
-    if (classify != null) {
-      axios
-        .get(
-          domain +
-            "/subregion?rid=" +
-            rid +
-            "&classify=" +
-            classify +
-            "&page=" +
-            page
-        )
-        .then(res => {
-          console.log(res);
-        });
-    } else {
-      axios.get(domain + "/subregion?rid=" + rid).then(res => {
-        Toast.hide();
-        this.setState({ subRegionList: res.data });
-      });
-    }
+    axios.get(domain + "/subregion?rid=" + rid).then(res => {
+      Toast.hide();
+      this.setState({ subRegionList: res.data });
+    });
   };
   componentDidMount() {
     this.getRegionList();
   }
   render() {
-    const { regionList } = this.state;
+    const { regionList, subRegionList } = this.state;
     return (
       <div>
         <NavBox onTabChange={this.onTabChange} />
@@ -115,6 +127,9 @@ class Main extends Component {
                 ...partitionList[this.state.ridIndex]
               ]}
               onTabChange={this.onSubTabChange}
+              ref={node => {
+                this.tabs = node;
+              }}
             />
           )}
           <div className="f-card">
@@ -133,11 +148,28 @@ class Main extends Component {
               })}
             {this.state.ridIndex != 0 &&
               this.state.subRegionFlag == false &&
-              regionList.map((item, key) => {
+              regionList.map((item, index) => {
                 return (
-                  <Card key={key} full={true}>
-                    {key == 0 && <Card.Header title="热门推荐" />}
-                    {key > 0 && <Card.Header title={item.name} />}
+                  <Card key={index} full={true}>
+                    {index == 0 && <Card.Header title="热门推荐" />}
+                    {index > 0 && (
+                      <Card.Header
+                        title={item.name}
+                        extra={
+                          <div
+                            style={{
+                              fontSize: "2.3vh",
+                              paddingRight: "4vw"
+                            }}
+                            onClick={() => {
+                              this.tabs.tabs.props.goToTab(index);
+                            }}
+                          >
+                            查看更多>
+                          </div>
+                        }
+                      />
+                    )}
                     <Card.Body>
                       <div className="classify-container">
                         {item.list &&
@@ -157,21 +189,53 @@ class Main extends Component {
                   </Card>
                 );
               })}
-            {/* 
-            {this.state.subRegionFlag == true && (
+
+            {this.state.subRegionFlag == true && subRegionList.recommand && (
               <Card full={true}>
                 <Card.Header title="热门推荐" />
                 <Card.Body>
                   <div className="classify-container">
-                    {this.state.subRegionList.news.archives.map(
-                      (item, index) => {
-                        return <div>{index}</div>;
-                      }
-                    )}
+                    {subRegionList.recommand &&
+                      subRegionList.recommand.map((item, key) => {
+                        if (key < 4) {
+                          return (
+                            <CardBox
+                              key={key}
+                              localaddress={item.localaddress}
+                              title={item.title}
+                            />
+                          );
+                        }
+                      })}
                   </div>
                 </Card.Body>
               </Card>
-            )} */}
+            )}
+            {this.state.subRegionFlag == true && subRegionList.news && (
+              <Card full={true}>
+                <Card.Header title="最新视频" />
+                <Card.Body>
+                  <div className="classify-container">
+                    {subRegionList.news &&
+                      subRegionList.news.map((item, key) => {
+                        return (
+                          <CardBox
+                            key={key}
+                            localaddress={item.localaddress}
+                            title={item.title}
+                          />
+                        );
+                      })}
+                  </div>
+                </Card.Body>
+                <Button
+                  className="news-loadMore"
+                  onClick={() => this.newsLoadMore()}
+                >
+                  点击加载更多
+                </Button>
+              </Card>
+            )}
           </div>
         </div>
       </div>

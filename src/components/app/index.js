@@ -14,8 +14,8 @@ import { domain, partitionList } from "../../config";
 import axios from "axios";
 import { SegmentedControl, Toast } from "antd-mobile";
 import Main from "../main";
+import { Duplex } from "stream";
 
-const search = () => <div />;
 const project = () => (
   <div>
     <p>project page</p>
@@ -97,7 +97,24 @@ class rank extends Component {
     );
   }
 }
+class Search extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { videoInfo: {} };
+  }
+  getVideo = () => {
+    axios.get(domain + "/video").then(res => {
+      this.setState({ videoInfo: res.data });
+    });
+  };
 
+  componentDidMount() {
+    this.getVideo();
+  }
+  render() {
+    return <div />;
+  }
+}
 class App extends Component {
   componentDidMount() {}
   render() {
@@ -108,7 +125,7 @@ class App extends Component {
           <main className="container">
             <Route exact path="/" component={Main} />
             <Route path="/rank" component={rank} />
-            <Route path="/search" component={search} />
+            <Route path="/search" component={Search} />
             <Route path="/project" component={project} />
           </main>
           <TabBarBox />
