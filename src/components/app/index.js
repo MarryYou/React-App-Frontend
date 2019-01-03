@@ -112,7 +112,22 @@ class Search extends Component {
     this.getVideo();
   }
   render() {
-    return <div />;
+    return (
+      <div>
+        <video
+          width="100%"
+          height="100%"
+          preload="auto"
+          autoPlay
+          controls="controls"
+        >
+          <source
+            src="//cn-sdjn3-cmcc-v-08.acgvideo.com/upgcxcode/79/92/69499279/69499279-1-6.mp4?expires=1546502100&amp;platform=html5&amp;ssig=SpVabGUEYdMa_7NiK3oPJg&amp;oi=3745811446&amp;nfa=7VMUDqBQpI8VGBbhQ1faUQ==&amp;dynamic=1&amp;hfa=2115953187&amp;hfb=M2Y2ZWYwZjM2YmRiYmY5MDljYTBiOWE2ZmEwYjJmYTM=&amp;trid=4e12b2bdf36442898a5564d3a86e4cac&amp;nfb=maPYqpoel5MI3qOUX6YpRA==&amp;nfc=1"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+    );
   }
 }
 class App extends Component {
