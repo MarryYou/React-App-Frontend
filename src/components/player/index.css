@@ -1,0 +1,74 @@
+.Player {
+    position: relative;
+    width: 100vw;
+    margin: auto;
+}
+
+.Player video {
+    width: 100%;
+}
+
+.Player .canvas-barrage {
+    position: absolute;
+    width: 100%;
+    min-height: 30vh;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.Player .video-title {
+    margin-top: 1vh;
+    font-size: 2.5vh;
+    text-align: left;
+    padding: 0 3vw;
+}
+
+.Player .video-info {
+    padding: 0 3vw;
+    margin-top: .5vh;
+}
+
+.Player .video-info .anthor-info {
+    font-size: 2vh;
+    color: #777;
+}
+
+.Player .video-info .anthor-info .anthor-name {
+    color: #000;
+    margin-left: 0;
+}
+
+.Player .video-info .anthor-info span {
+    display: inline-block;
+    margin-left: 2.5vw;
+}
+
+.Player .video-desc {
+    margin-top: .5vh;
+    font-size: 1.8vh;
+    color: #777;
+}
+
+.loadVideo {
+    width: 100vw;
+    height: 30vh;
+    position: relative;
+    background: #333;
+}
+
+.loadVideo .am-activity-indicator-spinner-lg {
+    width: 7vw;
+    height: 7vw;
+}
+
+.loadVideo .am-activity-indicator-tip {
+    font-size: 3.8vw;
+    color: #fff;
+}
+
+.loadVideo .am-activity-indicator {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+}

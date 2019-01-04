@@ -14,20 +14,23 @@ class RankCard extends Component {
       videoNumber,
       danmuNumber
     } = this.props;
+    let { rankSort } = this.props || true;
     return (
       <div className="rankCard">
-        <div className="left">
-          {rankIndex == 0 && (
-            <img src={domain + "/static/image/icon/rank1.png"} alt="" />
-          )}
-          {rankIndex == 1 && (
-            <img src={domain + "/static/image/icon/rank2.png"} alt="" />
-          )}
-          {rankIndex == 2 && (
-            <img src={domain + "/static/image/icon/rank3.png"} alt="" />
-          )}
-          {rankIndex > 2 && <p className="rankIndex">{rankIndex + 1}</p>}
-        </div>
+        {rankSort && (
+          <div className="left">
+            {rankIndex == 0 && (
+              <img src={domain + "/static/image/icon/rank1.png"} alt="" />
+            )}
+            {rankIndex == 1 && (
+              <img src={domain + "/static/image/icon/rank2.png"} alt="" />
+            )}
+            {rankIndex == 2 && (
+              <img src={domain + "/static/image/icon/rank3.png"} alt="" />
+            )}
+            {rankIndex > 2 && <p className="rankIndex">{rankIndex + 1}</p>}
+          </div>
+        )}
         <div className="right">
           <div className="pic">
             <img src={rankImg} alt="" />

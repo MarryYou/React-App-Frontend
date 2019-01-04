@@ -17,7 +17,6 @@ export const CanvasBarrage = function(canvas, video, options) {
     color: "white",
     data: []
   };
-
   options = options || {};
 
   var params = {};

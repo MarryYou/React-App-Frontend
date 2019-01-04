@@ -15,7 +15,7 @@ import axios from "axios";
 import { SegmentedControl, Toast } from "antd-mobile";
 import Main from "../main";
 import { Duplex } from "stream";
-
+import Video from '../videobox'
 const project = () => (
   <div>
     <p>project page</p>
@@ -97,39 +97,14 @@ class rank extends Component {
     );
   }
 }
-class Search extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { videoInfo: {} };
-  }
-  getVideo = () => {
-    axios.get(domain + "/video").then(res => {
-      this.setState({ videoInfo: res.data });
-    });
-  };
-
-  componentDidMount() {
-    this.getVideo();
-  }
-  render() {
-    return (
-      <div>
-        <video
-          width="100%"
-          height="100%"
-          preload="auto"
-          autoPlay
-          controls="controls"
-        >
-          <source
-            src="//cn-sdjn3-cmcc-v-08.acgvideo.com/upgcxcode/79/92/69499279/69499279-1-6.mp4?expires=1546502100&amp;platform=html5&amp;ssig=SpVabGUEYdMa_7NiK3oPJg&amp;oi=3745811446&amp;nfa=7VMUDqBQpI8VGBbhQ1faUQ==&amp;dynamic=1&amp;hfa=2115953187&amp;hfb=M2Y2ZWYwZjM2YmRiYmY5MDljYTBiOWE2ZmEwYjJmYTM=&amp;trid=4e12b2bdf36442898a5564d3a86e4cac&amp;nfb=maPYqpoel5MI3qOUX6YpRA==&amp;nfc=1"
-            type="video/mp4"
-          />
-        </video>
-      </div>
-    );
+class Search extends Component{
+  render(){
+    return(
+      <div />
+    )
   }
 }
+
 class App extends Component {
   componentDidMount() {}
   render() {
@@ -142,6 +117,7 @@ class App extends Component {
             <Route path="/rank" component={rank} />
             <Route path="/search" component={Search} />
             <Route path="/project" component={project} />
+            <Route path="/video" component={Video} />
           </main>
           <TabBarBox />
         </div>

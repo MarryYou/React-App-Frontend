@@ -16,6 +16,15 @@ class TabBarBox extends Component {
       tab_active: 0
     };
   }
+  componentDidMount() {
+    if (
+      !["/", "/rank", "/search", "/project"].includes(
+        this.props.location.pathname
+      )
+    ) {
+      this.setState({ tab_active: 4 });
+    }
+  }
   TabChange = (index, path) => {
     this.setState({ tab_active: index });
     this.props.history.push(path);
