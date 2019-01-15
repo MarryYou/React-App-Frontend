@@ -45,13 +45,8 @@ class Player extends Component {
             preload="auto"
             controls="controls"
             controlsList="nodownload"
-            x5-playsinline=""
             playsInline={true}
             webkit-playsinline="true"
-            x-webkit-airplay="true"
-            x5-video-player-type="h5"
-            x5-video-player-fullscreen=""
-            x5-video-orientation="portraint"
           >
             <source
               src={"http:" + videoInfo.reduxAsyncConnect.videoInfo.initUrl}
