@@ -45,8 +45,12 @@ class Player extends Component {
             preload="auto"
             controls="controls"
             controlsList="nodownload"
-            playsInline={true}
+            x5-playsinline="true"
             webkit-playsinline="true"
+            playsInline={true}
+            x-webkit-airplay="allow"
+            webkit-playsinline="true"
+            playsinline="true"
           >
             <source
               src={"http:" + videoInfo.reduxAsyncConnect.videoInfo.initUrl}
