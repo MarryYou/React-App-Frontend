@@ -40,7 +40,7 @@ class Video extends Component {
                   key={key}
                   path={path}
                   rankIndex={key}
-                  rankImg={"http:" + item.pic}
+                  rankImg={item.localaddress}
                   rankTitle={item.title}
                   rannSort={false}
                   upName={item.owner.name}
