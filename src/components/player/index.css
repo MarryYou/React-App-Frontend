@@ -6,6 +6,7 @@
 
 .Player video {
     width: 100vw;
+    min-height: 40vh;
     background: #000;
 }
 
