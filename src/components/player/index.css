@@ -6,14 +6,12 @@
 
 .Player video {
     width: 100vw;
-    height: 35vh;
     background: #000;
 }
 
 .Player .canvas-barrage {
     position: absolute;
     width: 100%;
-    min-height: 30vh;
     pointer-events: none;
     z-index: 1;
 }
