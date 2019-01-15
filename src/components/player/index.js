@@ -10,7 +10,7 @@ class Player extends Component {
     this.state = { videoInfo: {} };
   }
   getVideo = () => {
-    axios.get(domain + "/video").then(res => {
+    axios.get(domain + "/video?avid=" + this.props.avId).then(res => {
       this.setState({ videoInfo: res.data.info });
       let eleCanvas = document.getElementById("canvasBarrage");
       let eleVideo = document.getElementById("videoBarrage");

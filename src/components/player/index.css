@@ -5,7 +5,9 @@
 }
 
 .Player video {
-    width: 100%;
+    width: 100vw;
+    height: 30vh;
+    background: #000;
 }
 
 .Player .canvas-barrage {

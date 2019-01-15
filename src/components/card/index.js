@@ -5,15 +5,17 @@ class CardBox extends Component {
     return str.slice(0, 30);
   };
   render() {
-    const { localaddress, title } = this.props;
+    const { localaddress, title, path } = this.props;
     return (
       <div className="CardBox">
-        <div className="pic">
-          <img src={localaddress} alt="" />
-        </div>
-        <div className="article_tit">
-          <p>{this.sliceTitle(title)}</p>
-        </div>
+        <a href={path}>
+          <div className="pic">
+            <img src={localaddress} alt="" />
+          </div>
+          <div className="article_tit">
+            <p>{this.sliceTitle(title)}</p>
+          </div>
+        </a>
       </div>
     );
   }

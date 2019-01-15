@@ -137,9 +137,11 @@ class Main extends Component {
               regionList.length > 0 &&
               regionList.map((item, key) => {
                 if (key < 20) {
+                  let path = "/video?avId=" + item.aid;
                   return (
                     <CardBox
                       key={key}
+                      path={path}
                       localaddress={item.localaddress}
                       title={item.title}
                     />
@@ -175,9 +177,11 @@ class Main extends Component {
                         {item.list &&
                           item.list.map((subItem, subkey) => {
                             if (subkey < 4) {
+                              let path = "/video?avId=" + subItem.aid;
                               return (
                                 <CardBox
                                   key={subkey}
+                                  path={path}
                                   localaddress={subItem.localaddress}
                                   title={subItem.title}
                                 />
@@ -198,9 +202,11 @@ class Main extends Component {
                     {subRegionList.recommand &&
                       subRegionList.recommand.map((item, key) => {
                         if (key < 4) {
+                          let path = "/video?avId=" + item.aid;
                           return (
                             <CardBox
                               key={key}
+                              path={path}
                               localaddress={item.localaddress}
                               title={item.title}
                             />
@@ -218,9 +224,11 @@ class Main extends Component {
                   <div className="classify-container">
                     {subRegionList.news &&
                       subRegionList.news.map((item, key) => {
+                        let path = "/video?avId=" + item.aid;
                         return (
                           <CardBox
                             key={key}
+                            path={path}
                             localaddress={item.localaddress}
                             title={item.title}
                           />

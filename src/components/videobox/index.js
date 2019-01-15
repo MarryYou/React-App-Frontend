@@ -4,6 +4,7 @@ import Player from "../player";
 import axios from "axios";
 import { domain } from "../../config";
 import RankCard from "../rankcard";
+import { Link, NavLink } from "react-router-dom";
 
 class Video extends Component {
   constructor(props) {
@@ -16,7 +17,8 @@ class Video extends Component {
     });
   };
   getVideoRecommand = () => {
-    axios.get(domain + "/videorecommand").then(res => {
+    const avId = this.props.location.search.split("=")[1] || 0;
+    axios.get(domain + "/videorecommand?avid=" + avId).then(res => {
       this.setState({ recommandInfo: res.data.recommandList.data });
     });
   };
@@ -32,9 +34,11 @@ class Video extends Component {
         {this.state.recommandInfo.length > 0 &&
           this.state.recommandInfo.map((item, key) => {
             if (key < 15) {
+              let path = "/video?avId=" + item.aid;
               return (
                 <RankCard
                   key={key}
+                  path={path}
                   rankIndex={key}
                   rankImg={"http:" + item.pic}
                   rankTitle={item.title}
