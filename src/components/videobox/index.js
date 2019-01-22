@@ -4,8 +4,9 @@ import Player from "../player";
 import axios from "axios";
 import { domain } from "../../config";
 import RankCard from "../rankcard";
+import $ from "jquery";
+import fetchJsonp from "fetch-jsonp";
 import { Link, NavLink } from "react-router-dom";
-
 class Video extends Component {
   constructor(props) {
     super(props);
@@ -16,14 +17,20 @@ class Video extends Component {
       this.setState({ videoInfo: res.data.info, danmuInfo: res.data.comment });
     });
   };
+  getanalysis_Video = () => {
+    const avId = this.props.location.search.split("=")[1] || 0;
+    axios.get(domain + "/analysis_video?avid=" + avId).then(res => {
+      console.log(res);
+    });
+  };
   getVideoRecommand = () => {
     const avId = this.props.location.search.split("=")[1] || 0;
     axios.get(domain + "/videorecommand?avid=" + avId).then(res => {
       this.setState({ recommandInfo: res.data.recommandList.data });
     });
   };
-
   componentDidMount() {
+    this.getanalysis_Video();
     this.getVideoRecommand();
   }
   render() {
