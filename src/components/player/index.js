@@ -7,7 +7,7 @@ import "./index.css";
 class Player extends Component {
   constructor(props) {
     super(props);
-    this.state = { videoInfo: {} };
+    this.state = { videoInfo: {}, video_info: {} };
   }
   getVideo = () => {
     axios.get(domain + "/video?avid=" + this.props.avId).then(res => {
@@ -22,6 +22,11 @@ class Player extends Component {
       });
     });
   };
+  getanalysis_Video = () => {
+    axios.get(domain + "/analysis_video?avid=" + this.props.avId).then(res => {
+      this.setState({ video_info: res.data });
+    });
+  };
   timeTodate(time) {
     let date = new Date(parseInt(time) * 1000);
     return (
@@ -33,10 +38,19 @@ class Player extends Component {
   }
   componentDidMount() {
     this.getVideo();
+    this.getanalysis_Video();
+  }
+  resetVideourl(url) {
+    url = url.split("/");
+    let new_url =
+      "http://upos-hz-mirrorks3u.acgvideo.com/" + url.splice(3).join("/");
+    return new_url;
   }
   render() {
     const videoInfo = this.state.videoInfo;
-    if (videoInfo.reduxAsyncConnect) {
+    const video = this.state.video_info;
+
+    if (videoInfo.reduxAsyncConnect && video.durl) {
       return (
         <div className="Player">
           <canvas id="canvasBarrage" className="canvas-barrage" />
@@ -49,7 +63,7 @@ class Player extends Component {
             webkit-playsinline="true"
           >
             <source
-              src={"http:" + videoInfo.reduxAsyncConnect.videoInfo.initUrl}
+              src={this.resetVideourl(video.durl[0].url)}
               type="video/mp4"
             />
           </video>

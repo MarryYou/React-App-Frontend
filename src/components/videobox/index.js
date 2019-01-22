@@ -14,13 +14,17 @@ class Video extends Component {
   }
   getVideo = () => {
     axios.get(domain + "/video").then(res => {
-      this.setState({ videoInfo: res.data.info, danmuInfo: res.data.comment });
+      this.setState({
+        videoInfo: res.data.info,
+        danmuInfo: res.data.comment,
+        video_info: {}
+      });
     });
   };
   getanalysis_Video = () => {
     const avId = this.props.location.search.split("=")[1] || 0;
     axios.get(domain + "/analysis_video?avid=" + avId).then(res => {
-      console.log(res);
+      this.setState({ video_info: res.data });
     });
   };
   getVideoRecommand = () => {
