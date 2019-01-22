@@ -25,7 +25,6 @@ class Video extends Component {
     });
   };
   componentDidMount() {
-    this.getanalysis_Video();
     this.getVideoRecommand();
   }
   render() {
