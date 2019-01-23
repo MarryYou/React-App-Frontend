@@ -1,16 +1,14 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import "antd-mobile/dist/antd-mobile.css";
 import { domain, partitionList } from "../../config";
 import axios from "axios";
 import { Toast } from "antd-mobile";
-import SwiperBox from "../swiper";
-import NavBox from "../navbox";
-import CardBox from "../card";
-import SubBox from "../subbox";
+import SwiperBox from "../../components/swiper";
+import NavBox from "../../components/navbox";
+import CardBox from "../../components/card";
+import SubBox from "../../components/subbox";
 import { Card, WingBlank, WhiteSpace, Button } from "antd-mobile";
 import "./index.css";
-import CardFooter from "antd-mobile/lib/card/CardFooter";
 
 class Main extends Component {
   constructor(props) {

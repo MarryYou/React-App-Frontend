@@ -26,13 +26,13 @@ class RankCard extends Component {
       upName,
       videoNumber,
       danmuNumber,
-      path
+      path,
+      rankSort
     } = this.props;
-    let { rankSort } = this.props || true;
     return (
       <div className="rankCard">
-        <a href={path}>
-          {rankSort && (
+        {this.props.rankSort == true ? (
+          <a href={path}>
             <div className="left">
               {rankIndex == 0 && (
                 <img src={domain + "/static/image/icon/rank1.png"} alt="" />
@@ -45,44 +45,89 @@ class RankCard extends Component {
               )}
               {rankIndex > 2 && <p className="rankIndex">{rankIndex + 1}</p>}
             </div>
-          )}
-          <div className="right">
-            <div className="pic">
-              <img src={rankImg} alt="" />
-            </div>
-            <div className="art-box">
-              <p className="art-title">{this.sliceTitle(rankTitle)}</p>
-              <div className="art-up">
-                <div className="up-icon">
-                  <img src={domain + "/static/image/icon/ico_up.png"} alt="" />
+            <div className="right">
+              <div className="pic">
+                <img src={rankImg} alt="" />
+              </div>
+              <div className="art-box">
+                <p className="art-title">{this.sliceTitle(rankTitle)}</p>
+                <div className="art-up">
+                  <div className="up-icon">
+                    <img
+                      src={domain + "/static/image/icon/ico_up.png"}
+                      alt=""
+                    />
+                  </div>
+                  <div className="up-name">
+                    <span>{upName}</span>
+                  </div>
                 </div>
-                <div className="up-name">
-                  <span>{upName}</span>
+                <div className="art-video">
+                  <div className="video-icon">
+                    <img
+                      src={domain + "/static/image/icon/ico_play.png"}
+                      alt=""
+                    />
+                  </div>
+                  <div className="video-number">
+                    <span>{videoNumber}</span>
+                  </div>
+                  <div className="danmu-icon">
+                    <img
+                      src={domain + "/static/image/icon/ico_danmu.png"}
+                      alt=""
+                    />
+                  </div>
+                  <div className="danmu-number">
+                    <span>{danmuNumber}</span>
+                  </div>
                 </div>
               </div>
-              <div className="art-video">
-                <div className="video-icon">
-                  <img
-                    src={domain + "/static/image/icon/ico_play.png"}
-                    alt=""
-                  />
+            </div>
+          </a>
+        ) : (
+          <a href={path}>
+            <div className="right full">
+              <div className="pic">
+                <img src={rankImg} alt="" />
+              </div>
+              <div className="art-box">
+                <p className="art-title">{this.sliceTitle(rankTitle)}</p>
+                <div className="art-up">
+                  <div className="up-icon">
+                    <img
+                      src={domain + "/static/image/icon/ico_up.png"}
+                      alt=""
+                    />
+                  </div>
+                  <div className="up-name">
+                    <span>{upName}</span>
+                  </div>
                 </div>
-                <div className="video-number">
-                  <span>{videoNumber}</span>
-                </div>
-                <div className="danmu-icon">
-                  <img
-                    src={domain + "/static/image/icon/ico_danmu.png"}
-                    alt=""
-                  />
-                </div>
-                <div className="danmu-number">
-                  <span>{danmuNumber}</span>
+                <div className="art-video">
+                  <div className="video-icon">
+                    <img
+                      src={domain + "/static/image/icon/ico_play.png"}
+                      alt=""
+                    />
+                  </div>
+                  <div className="video-number">
+                    <span>{videoNumber}</span>
+                  </div>
+                  <div className="danmu-icon">
+                    <img
+                      src={domain + "/static/image/icon/ico_danmu.png"}
+                      alt=""
+                    />
+                  </div>
+                  <div className="danmu-number">
+                    <span>{danmuNumber}</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </a>
+          </a>
+        )}
       </div>
     );
   }

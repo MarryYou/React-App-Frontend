@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./components/app";
-import Main from "./components/main";
+import App from "./page/app";
+import Main from "./page/home";
 import Rank from "./components/rank";
 import * as serviceWorker from "./serviceWorker";
 import {

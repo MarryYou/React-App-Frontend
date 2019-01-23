@@ -1,28 +1,14 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "antd-mobile/dist/antd-mobile.css";
+import { SegmentedControl, Toast } from "antd-mobile";
 import "./index.css";
-import Header from "../header";
-import TabBarBox from "../tabbar";
-import SwiperBox from "../swiper";
-import NavBox from "../navbox";
-import CardBox from "../card";
-import RankBox from "../rankBox";
-import SubBox from "../subbox";
-import RankCard from "../rankcard";
+import RankBox from "../../components/rankBox";
+import RankCard from "../../components/rankcard";
 import { domain, partitionList } from "../../config";
 import axios from "axios";
-import { SegmentedControl, Toast } from "antd-mobile";
-import Main from "../main";
-import { Duplex } from "stream";
-import Video from "../videobox";
-const project = () => (
-  <div>
-    <p>project page</p>
-  </div>
-);
+
 const SegmentNumber = [1, 3, 7];
-class rank extends Component {
+class Rank extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -100,31 +86,4 @@ class rank extends Component {
     );
   }
 }
-class Search extends Component {
-  render() {
-    return <div />;
-  }
-}
-
-class App extends Component {
-  componentDidMount() {}
-  render() {
-    return (
-      <Router>
-        <div className="App">
-          <Header />
-          <main className="container">
-            <Route exact path="/" component={Main} />
-            <Route path="/rank" component={rank} />
-            <Route path="/search" component={Search} />
-            <Route path="/project" component={project} />
-            <Route path="/video" component={Video} />
-          </main>
-          <TabBarBox />
-        </div>
-      </Router>
-    );
-  }
-}
-
-export default App;
+export default Rank;

@@ -43,7 +43,7 @@ class Video extends Component {
                   rankIndex={key}
                   rankImg={item.localaddress}
                   rankTitle={item.title}
-                  rannSort={false}
+                  rankSort={false}
                   upName={item.owner.name}
                   videoNumber={item.stat.view}
                   danmuNumber={item.stat.danmaku}
