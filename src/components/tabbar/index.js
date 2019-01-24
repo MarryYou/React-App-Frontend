@@ -59,15 +59,6 @@ class TabBarBox extends Component {
           </TabBarIcon>
           <TabBarLabel>查找</TabBarLabel>
         </TabBarItem>
-        <TabBarItem
-          active={this.state.tab_active == 3}
-          onClick={() => this.TabChange(3, "/project")}
-        >
-          <TabBarIcon className="bar-item">
-            <i className="fa fa-info-circle bar-icon" />
-          </TabBarIcon>
-          <TabBarLabel>项目介绍</TabBarLabel>
-        </TabBarItem>
       </TabBar>
     );
   }

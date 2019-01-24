@@ -92,7 +92,14 @@ class RankCard extends Component {
                 <img src={rankImg} alt="" />
               </div>
               <div className="art-box">
-                <p className="art-title">{this.sliceTitle(rankTitle)}</p>
+                {typeof rankTitle == "string" ? (
+                  <p className="art-title">{this.sliceTitle(rankTitle)}</p>
+                ) : (
+                  <div
+                    className="art-title"
+                    dangerouslySetInnerHTML={{ __html: rankTitle.title }}
+                  />
+                )}
                 <div className="art-up">
                   <div className="up-icon">
                     <img

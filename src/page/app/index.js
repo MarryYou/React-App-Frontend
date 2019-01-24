@@ -7,13 +7,8 @@ import TabBarBox from "../../components/tabbar";
 import Main from "../home";
 import Rank from "../rank";
 import Search from "../search";
-import Project from "../project";
+import User from "../user";
 import Video from "../../components/videobox";
-const project = () => (
-  <div>
-    <p>project page</p>
-  </div>
-);
 
 class App extends Component {
   componentDidMount() {}
@@ -26,8 +21,8 @@ class App extends Component {
             <Route exact path="/" component={Main} />
             <Route path="/rank" component={Rank} />
             <Route path="/search" component={Search} />
-            <Route path="/project" component={Project} />
             <Route path="/video" component={Video} />
+            <Route path="/user" component={User} />
           </main>
           <TabBarBox />
         </div>

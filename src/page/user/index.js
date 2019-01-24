@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "antd-mobile/dist/antd-mobile.css";
 import "./index.css";
-class Project extends Component {
+class User extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -9,7 +9,7 @@ class Project extends Component {
 
   componentDidMount() {}
   render() {
-    return <div />;
+    return <div className="User">1</div>;
   }
 }
-export default Project;
+export default User;
