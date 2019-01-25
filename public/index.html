@@ -110,13 +110,8 @@
             window.viewportUnitsBuggyfill.init({
                 hacks: window.viewportUnitsBuggyfillHacks
             });
-
-            var winDPI = window.devicePixelRatio;
-            var uAgent = window.navigator.userAgent;
-            var screenHeight = window.screen.height;
-            var screenWidth = window.screen.width;
-            var winWidth = window.innerWidth;
-            var winHeight = window.innerHeight;
+            document.body.style.height = document.body.clientHeight + 'px';
+            document.body.style.width = document.body.clientWidth + 'px';
         }
     </script>
 </body>
