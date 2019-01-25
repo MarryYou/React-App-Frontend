@@ -1,9 +1,9 @@
     .App {
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
         overflow: hidden;
         display: flex;
-        flex-direction: column
+        flex-direction: column;
     }
     
     .container {
@@ -48,7 +48,8 @@
         width: 100vw;
         height: 73vh;
     }
-    .index-container{
+    
+    .index-container {
         width: 100vw;
         height: 77.5vh;
         overflow-x: hidden;
