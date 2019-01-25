@@ -8,30 +8,38 @@
 
 .User .user-banner {
     width: 100vw;
+    height: 25vh;
+    background-repeat: no-repeat !important;
+    background-origin: border-box;
+    background-size: 100% !important;
+    position: relative;
 }
 
 .User .user-banner img {
     width: 100vw;
 }
 
-.User .user-info {
-    width: 100vw;
-    position: relative;
-    min-height: 5vh;
-    background: #fff;
+.User .user-info-box {
+    width: 30vw;
+    height: 12vh;
+    position: absolute;
+    left: 3vw;
+    bottom: 0;
 }
 
-.User .user-info .pic {
-    position: absolute;
-    top: -150%;
-    overflow: hidden;
-    width: 24vw;
-    left: 3vw;
+.User .user-info {
+    width: 22vw;
+    height: 12vh;
+    display: inline-block;
+    position: relative;
 }
+
+.User .user-info .pic {}
 
 .User .user-info .avatar {
-    border: 1px solid transparent;
+    width: 100%;
     border-radius: 50%;
+    border: 1px solid transparent;
 }
 
 .User .user-info .bigVip {
@@ -41,25 +49,16 @@
     width: 5vw;
 }
 
-.User .user-info .vip {
-    display: flex;
-    min-height: 5vh;
+.User .user-info-box .vip {
+    position: absolute;
+    right: -3vw;
+    bottom: 1.5vw;
 }
 
-.User .user-info .vip .left {
-    flex: 2.8;
-}
-
-.User .user-info .vip .right {
-    flex: 7.2;
-    font-size: 3vw;
-    line-height: 6vw;
-    padding: 2vw 0;
-}
-
-.User .user-info .vip .right span {
+.User .user-info-box .vip span {
     background: #fb7299;
     color: #fff;
+    font-size: 2.5vw;
     padding: 0 1vw;
 }
 

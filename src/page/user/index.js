@@ -6,6 +6,7 @@ import "./index.css";
 import axios from "axios";
 import { domain, formatNumber } from "../../config";
 import CardFooter from "antd-mobile/lib/card/CardFooter";
+const bg = "url(" + domain + "/static/image/icon/user_banner.png)";
 class User extends Component {
   constructor(props) {
     super(props);
@@ -49,12 +50,9 @@ class User extends Component {
   render() {
     return (
       <div className="User">
-        <div className="user-banner">
-          <img src={domain + "/static/image/icon/user_banner.png"} alt="" />
-        </div>
-        <div className="user-info">
-          <div className="logo">
-            <div className="pic">
+        <div className="user-banner" style={{ backgroundImage: bg }}>
+          <div className="user-info-box">
+            <div className="user-info">
               {!this.state.vipInfo ? (
                 <img
                   className="avatar"
@@ -77,17 +75,16 @@ class User extends Component {
                 />
               )}
             </div>
-          </div>
-          <div className="vip">
-            <div className="left" />
-            <p className="right">
+
+            <div className="vip">
               {this.state.vipInfo.vipStatus == 1 && <span>大会员</span>}
-            </p>
+            </div>
           </div>
         </div>
+
         <div className="upinfo">
           <div className="top">
-            <span className="upname">XX</span>
+            <span className="upname">XXX</span>
             <div className="sex">
               <svg
                 id="icon-nv"
