@@ -10,6 +10,10 @@
     width: 100vw;
 }
 
+.User .user-banner img {
+    width: 100vw;
+}
+
 .User .user-info {
     width: 100vw;
     position: relative;
