@@ -59,15 +59,7 @@ class RankCard extends Component {
                       alt=""
                     />
                   </div>
-                  <div className="up-name">
-                    <a
-                      className="up-link"
-                      href={"/user?mid=" + mid}
-                      rel="noopener noreferrer"
-                    >
-                      {upName}
-                    </a>
-                  </div>
+                  <div className="up-name">{upName}</div>
                 </div>
                 <div className="art-video">
                   <div className="video-icon">
@@ -114,15 +106,7 @@ class RankCard extends Component {
                       alt=""
                     />
                   </div>
-                  <div className="up-name">
-                    <a
-                      className="up-link"
-                      href={"/user?mid=" + mid}
-                      rel="noopener noreferrer"
-                    >
-                      {upName}
-                    </a>
-                  </div>
+                  <div className="up-name">{upName}</div>
                 </div>
                 <div className="art-video">
                   <div className="video-icon">

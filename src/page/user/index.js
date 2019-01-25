@@ -50,23 +50,29 @@ class User extends Component {
     return (
       <div className="User">
         <div className="user-banner">
-          <img
-            src={"http://localhost:8086/static/image/icon/user_banner.png"}
-            alt=""
-          />
+          <img src={domain + "/static/image/icon/user_banner.png"} alt="" />
         </div>
         <div className="user-info">
           <div className="logo">
             <div className="pic">
-              <img
-                className="avatar"
-                src="http://localhost:8086/static/image/avatar/6792899.png"
-                alt=""
-              />
+              {!this.state.vipInfo ? (
+                <img
+                  className="avatar"
+                  src={domain + "/static/image/avatar/6792899.png"}
+                  alt=""
+                />
+              ) : (
+                <img
+                  className="avatar"
+                  src={domain + "/static/image/icon/noface.gif"}
+                  alt=""
+                />
+              )}
+
               {this.state.vipInfo.vipStatus == 1 && (
                 <img
                   className="bigVip"
-                  src="http://localhost:8086/static/image/icon/big.png"
+                  src={domain + "/static/image/icon/big.png"}
                   alt=""
                 />
               )}
@@ -81,7 +87,7 @@ class User extends Component {
         </div>
         <div className="upinfo">
           <div className="top">
-            <span className="upname">竹刺</span>
+            <span className="upname">XX</span>
             <div className="sex">
               <svg
                 id="icon-nv"
