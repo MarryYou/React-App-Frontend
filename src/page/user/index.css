@@ -1,0 +1,124 @@
+.User {
+    width: 100vw;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    background: #fff;
+}
+
+.User .user-banner {
+    width: 100vw;
+}
+
+.User .user-info {
+    width: 100vw;
+    position: relative;
+    min-height: 5vh;
+    background: #fff;
+}
+
+.User .user-info .pic {
+    position: absolute;
+    top: -150%;
+    overflow: hidden;
+    width: 24vw;
+    left: 3vw;
+}
+
+.User .user-info .avatar {
+    border: 1px solid transparent;
+    border-radius: 50%;
+}
+
+.User .user-info .bigVip {
+    position: absolute;
+    right: 0;
+    top: 70%;
+    width: 5vw;
+}
+
+.User .user-info .vip {
+    display: flex;
+    min-height: 5vh;
+}
+
+.User .user-info .vip .left {
+    flex: 2.8;
+}
+
+.User .user-info .vip .right {
+    flex: 7.2;
+    font-size: 3vw;
+    line-height: 6vw;
+    padding: 2vw 0;
+}
+
+.User .user-info .vip .right span {
+    background: #fb7299;
+    color: #fff;
+    padding: 0 1vw;
+}
+
+.User .upinfo {
+    background: #fff;
+    min-height: 20vh;
+    margin-top: 1vh;
+}
+
+.User .upinfo .upname {
+    font-size: 5vw;
+    margin-left: 5vw;
+}
+
+.User .upinfo .sex {
+    display: inline-block;
+    margin: 1vw 0 0 3vw;
+    width: 5vw;
+    height: 5vw;
+    position: relative;
+}
+
+.User .upinfo .sex svg {
+    position: absolute;
+    bottom: -10%;
+}
+
+.User .upinfo .level {
+    margin-right: 2vw;
+}
+
+.User .upinfo .uid {
+    font-size: 4vw;
+    font-weight: 100;
+}
+
+.User.upinfo .top {
+    min-height: 5vh;
+}
+
+.User .upinfo .mid {
+    font-size: 4vw;
+    margin-left: 5vw;
+    line-height: 7vw;
+    min-height: 3vh;
+    color: #212121;
+}
+
+.User .upinfo .mid .particle {
+    color: #999;
+    font-style: normal;
+    margin: 0 3vw 0 0;
+}
+
+.User .upinfo .bottom .abstract {
+    margin: 1vw 5vw 0 5vw;
+    font-size: 4vw;
+    color: #666;
+    padding-bottom: 2vw;
+}
+
+.User .footer {
+    width: 100vw;
+    min-height: 3vh;
+    background: #fff;
+}

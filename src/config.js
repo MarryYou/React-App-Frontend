@@ -322,3 +322,13 @@ export const partitionList = {
     }
   ]
 };
+export const formatNumber = function(num) {
+  let formatNum = null;
+  if (num < 10000) {
+    formatNum = num;
+  } else if (num >= 10000 && num < 100000000) {
+    num = num / 10 ** 4;
+    formatNum = num.toFixed(2) + "万";
+  }
+  return formatNum;
+};

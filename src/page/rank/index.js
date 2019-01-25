@@ -70,6 +70,7 @@ class Rank extends Component {
                       rankIndex={key}
                       rankImg={item.localaddress}
                       path={path}
+                      mid={item.mid}
                       rankTitle={item.title}
                       rankSort={true}
                       upName={item.author}

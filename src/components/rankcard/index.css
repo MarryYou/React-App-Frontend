@@ -134,6 +134,12 @@
     position: relative;
 }
 
+.rankCard .up-link {
+    display: inline;
+    color: #999;
+    text-decoration: none;
+}
+
 .rankCard .art-video .danmu-icon img {
     width: 4vw;
     vertical-align: middle;

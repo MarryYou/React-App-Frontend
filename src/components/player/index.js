@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { CanvasBarrage } from "./canvasBarrage";
 import axios from "axios";
-import { domain } from "../../config";
+import { domain, formatNumber } from "../../config";
 import { Toast, ActivityIndicator } from "antd-mobile";
 import "./index.css";
 class Player extends Component {
@@ -74,13 +74,28 @@ class Player extends Component {
             <div className="video-info">
               <div className="anthor-info">
                 <span className="anthor-name">
-                  {videoInfo.reduxAsyncConnect.videoInfo.owner.name}
+                  <a
+                    className="up-link"
+                    href={
+                      "/user?mid=" +
+                      videoInfo.reduxAsyncConnect.videoInfo.owner.mid
+                    }
+                    rel="noopener noreferrer"
+                  >
+                    {videoInfo.reduxAsyncConnect.videoInfo.owner.name}
+                  </a>
                 </span>
                 <span>
-                  {videoInfo.reduxAsyncConnect.videoInfo.stat.view} 次观看
+                  {formatNumber(
+                    videoInfo.reduxAsyncConnect.videoInfo.stat.view
+                  )}{" "}
+                  次观看
                 </span>
                 <span>
-                  {videoInfo.reduxAsyncConnect.videoInfo.stat.danmaku} 条弹幕
+                  {formatNumber(
+                    videoInfo.reduxAsyncConnect.videoInfo.stat.danmaku
+                  )}{" "}
+                  条弹幕
                 </span>
                 <span>
                   {this.timeTodate(

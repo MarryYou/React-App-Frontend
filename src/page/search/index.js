@@ -300,6 +300,7 @@ class Search extends Component {
                     path={path}
                     rankTitle={{ title: item.title }}
                     rankSort={false}
+                    mid={item.mid}
                     upName={item.author}
                     videoNumber={item.play}
                     danmuNumber={item.video_review}

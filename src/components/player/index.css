@@ -10,6 +10,11 @@
     background: #000;
 }
 
+.Player .up-link {
+    color: #212121;
+    text-decoration: none;
+}
+
 .Player .canvas-barrage {
     position: absolute;
     width: 100%;

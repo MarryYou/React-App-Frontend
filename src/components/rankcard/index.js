@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./index.css";
-import { domain } from "../../config";
+import { domain, formatNumber } from "../../config";
 import { withRouter } from "react-router-dom";
 class RankCard extends Component {
   constructor(props) {
@@ -27,6 +27,7 @@ class RankCard extends Component {
       videoNumber,
       danmuNumber,
       path,
+      mid,
       rankSort
     } = this.props;
     return (
@@ -59,7 +60,13 @@ class RankCard extends Component {
                     />
                   </div>
                   <div className="up-name">
-                    <span>{upName}</span>
+                    <a
+                      className="up-link"
+                      href={"/user?mid=" + mid}
+                      rel="noopener noreferrer"
+                    >
+                      {upName}
+                    </a>
                   </div>
                 </div>
                 <div className="art-video">
@@ -70,7 +77,7 @@ class RankCard extends Component {
                     />
                   </div>
                   <div className="video-number">
-                    <span>{videoNumber}</span>
+                    <span>{formatNumber(videoNumber)}</span>
                   </div>
                   <div className="danmu-icon">
                     <img
@@ -79,7 +86,7 @@ class RankCard extends Component {
                     />
                   </div>
                   <div className="danmu-number">
-                    <span>{danmuNumber}</span>
+                    <span>{formatNumber(danmuNumber)}</span>
                   </div>
                 </div>
               </div>
@@ -108,7 +115,13 @@ class RankCard extends Component {
                     />
                   </div>
                   <div className="up-name">
-                    <span>{upName}</span>
+                    <a
+                      className="up-link"
+                      href={"/user?mid=" + mid}
+                      rel="noopener noreferrer"
+                    >
+                      {upName}
+                    </a>
                   </div>
                 </div>
                 <div className="art-video">
@@ -119,7 +132,7 @@ class RankCard extends Component {
                     />
                   </div>
                   <div className="video-number">
-                    <span>{videoNumber}</span>
+                    <span>{formatNumber(videoNumber)}</span>
                   </div>
                   <div className="danmu-icon">
                     <img
@@ -128,7 +141,7 @@ class RankCard extends Component {
                     />
                   </div>
                   <div className="danmu-number">
-                    <span>{danmuNumber}</span>
+                    <span>{formatNumber(danmuNumber)}</span>
                   </div>
                 </div>
               </div>

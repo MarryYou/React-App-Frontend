@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./page/app";
 import Main from "./page/home";
-import Rank from "./components/rank";
+import Rank from "./page/rank";
 import * as serviceWorker from "./serviceWorker";
 import {
   BrowserRouter as Router,
